@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "users")//not user => because it is reserved.
+@Table(name = "users")
 public class User
 {
     @Id
