@@ -1,0 +1,8 @@
+{
+  "name": "alphatech-device-seller",
+  "buildpacks": [
+    {
+      "url": "heroku/java"
+    }
+  ]
+}
