@@ -10,5 +10,5 @@ public interface UserService {
 
     Optional<UserDto> findByUsername(String username);
 
-    void changeRole(Role newRole, String username);
+
 }

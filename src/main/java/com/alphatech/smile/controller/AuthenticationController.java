@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("api/authentication")//pre-path
+@RequestMapping("api/authentication")
 public class AuthenticationController {
     private final AuthenticationService authenticationService;
 
@@ -23,16 +23,16 @@ public class AuthenticationController {
         this.userService = userService;
     }
 
-    @PostMapping("sign-up") //api/authentication/sign-up
-    public ResponseEntity<?> signUp(@RequestBody UserDto user) {
+    @PostMapping("sign-up")
+    public ResponseEntity<Object> signUp(@RequestBody UserDto user) {
         if (userService.findByUsername(user.getUsername()).isPresent()) {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
         return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
     }
 
-    @PostMapping("sign-in")//api/authentication/sign-in
-    public ResponseEntity<?> signIn(@RequestBody UserDto user) {
+    @PostMapping("sign-in")
+    public ResponseEntity<Object> signIn(@RequestBody UserDto user) {
         return new ResponseEntity<>(authenticationService.signInAndReturnJWT(user), HttpStatus.OK);
     }
 }
